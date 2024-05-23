@@ -1,32 +1,20 @@
 import './App.css';
-import { Card } from './components/Card';
-import styled from "styled-components";
-import { Contador } from './components/Contador'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Home } from './pages/Home'
+import { About } from './pages/About';
+import { Contact } from './pages/Contact';
 
-const Container = styled.div
-`
-  .card {
-    display: flex;
-    justify-content: center; /* Alinhamento horizontal */
-    align-items: center; /* Alinhamento vertical */    
-  }
-`
 
 function App() {
   return (
-    <Container >
-      <div class="card">
-        <Card title="Teste 1"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras varius, sem sit amet euismod aliquam, lectus elit porttitor lorem, vel ullamcorper sapien sem vitae felis. In eleifend hendrerit gravida. Vestibulum tempor nibh in auctor pellentesque. Mauris venenatis sapien ut neque aliquet venenatis. Nam ut odio est."/>
-        <Card title="Teste 2"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras varius, sem sit amet euismod aliquam, lectus elit porttitor lorem, vel ullamcorper sapien sem vitae felis. In eleifend hendrerit gravida. Vestibulum tempor nibh in auctor pellentesque. Mauris venenatis sapien ut neque aliquet venenatis. Nam ut odio est."/>
-        <Card title="Teste 3"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras varius, sem sit amet euismod aliquam, lectus elit porttitor lorem, vel ullamcorper sapien sem vitae felis. In eleifend hendrerit gravida. Vestibulum tempor nibh in auctor pellentesque. Mauris venenatis sapien ut neque aliquet venenatis. Nam ut odio est."/>
-      </div>
-      <div class="contador">
-        <Contador />
-      </div>
-    </Container >
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/contact" element={<Contact/>} />
+      </Routes>
+    </Router>
   );
 }
 
